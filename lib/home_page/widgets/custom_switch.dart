@@ -5,12 +5,12 @@ import '../../cardController.dart';
 
 // ignore: must_be_immutable
 class CustomSwitch extends StatefulWidget {
-  CardController cardController;
   final Color activeColor; 
+  final String device;
    CustomSwitch({
     Key? key,
      required this.activeColor,
-     required this.cardController,
+     required this.device
   }) : super(key: key);
 
   @override
@@ -22,28 +22,28 @@ class _CustomSwitchState extends State<CustomSwitch> {
   Widget build(BuildContext context) {
     return 
     GetBuilder<CardController>(
-      builder: (_){
+      builder: (controller){
         return AnimatedContainer(
       duration: Duration(milliseconds: 500),
       curve: Curves.linear,
       padding: EdgeInsets.symmetric(vertical: 2, horizontal: 0),
       decoration: BoxDecoration(
-        color:widget.cardController.value.value?Theme.of(context).scaffoldBackgroundColor: Colors.grey.withOpacity(0.7),
+        color:controller.devices[widget.device]!?Theme.of(context).scaffoldBackgroundColor: Colors.grey.withOpacity(0.7),
         borderRadius: BorderRadius.all(Radius.circular(20))
       ),
       child: AnimatedAlign(
         duration: Duration(milliseconds:500),
-        alignment: widget.cardController.value.value?Alignment.centerLeft:Alignment.centerRight,
+        alignment: controller.devices[widget.device]!?Alignment.centerLeft:Alignment.centerRight,
         child:InkWell(
           onTap: (){
-            widget.cardController.changeValue();
+            controller.changeValue(widget.device);
           },
           child: AnimatedContainer(
             duration: Duration(milliseconds:500),
             height: 20,
             width: 20,
             decoration: BoxDecoration(
-              color: widget.cardController.value.value?widget.activeColor: Colors.white,
+              color: controller.devices[widget.device]!?widget.activeColor: Colors.white,
               shape: BoxShape.circle,
             ),
           ),

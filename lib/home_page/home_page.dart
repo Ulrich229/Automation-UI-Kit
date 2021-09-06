@@ -42,33 +42,47 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20),
               Expanded(
                 child: SingleChildScrollView(
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            ControlCard(
-                              activeColor: blue,
-                              device: 'Light',
-                              imagePath: 'assets/images/lightbulb.png',
-                            ),
-                            ControlCard(
-                              activeColor: pink1,
-                              device: 'Heater',
-                              imagePath: 'assets/images/thermometer.png',
-                            ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            AddDevice(),
-                          ],
-                        ),
-                      ]),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              ControlCard(
+                                activeColor: blue,
+                                device: 'Light',
+                                imagePath: 'assets/images/lightbulb.png',
+                              ),
+                              SizedBox(height:20),
+                              ControlCard(
+                                activeColor: pink1,
+                                device: 'Heater',
+                                imagePath: 'assets/images/thermometer.png',
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              AddDevice(),
+                              SizedBox(height:20),
+                              ControlCard(
+                                activeColor: pink1,
+                                device: 'AC',
+                                imagePath: 'assets/images/air-conditioner.png',
+                              ),
+                              SizedBox(height:20),
+                              ControlCard(
+                                activeColor: green,
+                                device: 'Fan',
+                                imagePath: 'assets/images/fan.png',
+                              ),
+                            ],
+                          ),
+                        ]),
+                  ),
                 ),
-              ),
             ],
           )),
     );
