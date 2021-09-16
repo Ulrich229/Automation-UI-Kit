@@ -1,6 +1,6 @@
 # Automation UI Kit
 
-A project inspired by a the UI on .
+A project inspired by a the UI on https://www.instagram.com/p/CQTlcv3osiv/?utm_source=ig_web_copy_link.
 
 ##ScreenShots
 
